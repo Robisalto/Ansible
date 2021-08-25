@@ -14,7 +14,7 @@ provider "azurerm" {
   features {}
 }
 
-resource "azurerm_resource_group" "Ansible" {
-  name     = "Ansible"
+resource "azurerm_resource_group" "rg-robin" {
+  name     = "rg-robin"
   location = "westeurope"
 }
