@@ -126,7 +126,7 @@ resource "tls_private_key" "robin-ssh" {
   rsa_bits = 4096
 }
 output "tls_private_key" { 
-    value = tls_private_key.example_ssh.private_key_pem 
+    value = tls_private_key.robin-ssh.private_key_pem 
     sensitive = true
 }
 
@@ -157,11 +157,11 @@ resource "azurerm_linux_virtual_machine" "robin-vm" {
 
     admin_ssh_key {
         username       = "robin"
-        public_key     = tls_private_key.example_ssh.public_key_openssh
+        public_key     = tls_private_key.robin-ssh.public_key_openssh
     }
 
     boot_diagnostics {
-        storage_account_uri = azurerm_storage_account.mystorageaccount.primary_blob_endpoint
+        storage_account_uri = azurerm_storage_account.robin-storage.primary_blob_endpoint
     }
 
     tags = {
